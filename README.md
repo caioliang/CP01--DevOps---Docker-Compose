@@ -1,4 +1,4 @@
-# 🌍 SAFEQUAKE V1
+# 🌍 SAFEQUAKE V1 - Version Docker Compose
 
 Sistema de monitoramento sísmico inteligente com alertas em tempo real baseado em geolocalização e magnitude de terremotos.
 
@@ -26,35 +26,50 @@ O **SafeQuake** é um sistema desenvolvido para detectar eventos sísmicos com b
 ### 1. Clone o repositório
 
 ```bash
-git clone https://github.com/caioliang/safequake_api.git
-cd safequake_api
+git clone https://github.com/caioliang/CP01--DevOps---Docker-Compose
+cd CP01--DevOps---Docker-Compose
 ```
 
-### 2. Configure o acesso ao banco Oracle da FIAP
+### 2. Configure as variáveis de ambiente
 
-#### Opção A: Usando variáveis de ambiente
+#### Etapa 1: Criando o arquivo .env
 
 ```bash
-export DB_USERNAME=seu_usuario
-export DB_PASSWORD=sua_senha
+DB_USERNAME=USUARIO
+DB_PASSWORD=SENHA
+DB_HOST=postgres
+DB_PORT=5432
+DB_NAME=safequake
+POSTGRES_USER=USUARIO
+POSTGRES_PASSWORD=SENHA
+POSTGRES_DB=safequake
 ```
-> Obrigatório possuir cadastro no BD ORACLE FIAP
+> Obrigatório criação do arquivo das variáveis de ambiente
 
-### 3. Compile o projeto com Maven
+
+### 3. Execute a aplicação
 
 ```bash
-mvn clean install
+docker-compose up -d --build 
 ```
 
-### 4. Execute a aplicação
-
-```bash
-mvn spring-boot:run
-```
-
-> A aplicação ficará disponível em: `http://localhost:8080`
+> A aplicação ficará disponível em: `http://localhost:8080/swagger-ui/index.html`
 
 ---
+
+### 4. Comandos importantes do Docker Compose
+
+```bash
+docker-compose ps | status dos containers
+docker-compose logs -f | logs em tempo real
+docker-compose down | encerra os contatines, redes e volumes gerenciados 
+```
+
+> A aplicação ficará disponível em: `http://localhost:8080/swagger-ui/index.html`
+
+---
+
+
 
 ## 🔐 Autenticação
 
